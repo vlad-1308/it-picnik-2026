@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=yes">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>ИТ-Пикник — Влад × Юля · LIVE</title>
+<style>
+:root{--bg:#0b0b0c;--card:#171719;--card2:#222225;--text:#f7f7f8;--muted:#a0a0a8;--border:#313136;--a:#ff7a00;--soft:#2d1b0c;--good:#66db8c}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text",Arial,sans-serif}button,input{font:inherit}.app{max-width:650px;margin:auto;padding:calc(10px + env(safe-area-inset-top)) 12px calc(82px + env(safe-area-inset-bottom))}.top{display:flex;justify-content:space-between;align-items:center;margin:2px 2px 10px}.top h1{font-size:23px;margin:0}.live{font-size:11px;color:var(--good);border:1px solid #285f3b;border-radius:999px;padding:5px 8px}.view{display:none}.view.active{display:block}.card,.hero,.tabs,.tools{background:var(--card);border:1px solid var(--border);border-radius:16px}.hero{padding:15px;background:linear-gradient(145deg,#2a190c,var(--card) 70%)}.hero .state{color:#ffb879;font-size:12px;font-weight:800}.hero h2{margin:4px 0 5px;font-size:22px}.muted{color:var(--muted)}.profile,.program-tabs,.map-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:4px;margin:9px 0;background:var(--card);border:1px solid var(--border);border-radius:14px}.program-tabs{grid-template-columns:1fr 1fr 1.2fr}.profile button,.program-tabs button,.map-tabs button{border:0;border-radius:10px;background:transparent;color:var(--muted);padding:9px 5px;font-weight:800}.profile button.active,.program-tabs button.active,.map-tabs button.active{background:var(--card2);color:var(--text)}.route{position:relative;margin-top:10px}.route:before{content:"";position:absolute;left:15px;top:14px;bottom:15px;border-left:2px solid var(--border)}.event{position:relative;margin:0 0 8px 31px;padding:11px;background:var(--card);border:1px solid var(--border);border-radius:14px}.event:before{content:"";position:absolute;left:-21px;top:17px;width:9px;height:9px;border-radius:50%;background:var(--a);box-shadow:0 0 0 4px var(--bg)}.event.current{border-color:var(--a)}.time{color:#ffbd84;font-weight:900;font-size:12px}.event h3{font-size:15px;margin:2px 0}.meta{color:var(--muted);font-size:12px}.tag{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:999px;background:var(--soft);color:#ffc08a;font-size:10px}.tools{padding:9px;margin-bottom:8px}.search{width:100%;border:1px solid var(--border);background:var(--card2);color:var(--text);border-radius:11px;padding:10px}.filters{display:flex;gap:5px;overflow:auto;margin-top:7px}.filters button{flex:none;border:1px solid var(--border);background:var(--card2);color:var(--muted);border-radius:999px;padding:6px 9px}.filters button.active{background:var(--a);color:#111;border-color:var(--a)}.slot{margin:13px 1px 5px;font-size:14px;font-weight:900;color:#ffbd84}.mapbox{position:relative;height:min(68vh,570px);overflow:auto;background:#8de8ba;border:1px solid var(--border);border-radius:16px}.mapbox img{display:block;width:100%;height:auto;transform-origin:top left}.map-controls{position:absolute;right:8px;top:8px;z-index:3;display:flex;gap:4px;background:rgba(10,10,11,.8);padding:4px;border-radius:11px}.map-controls button{width:38px;height:38px;border:0;border-radius:8px;background:#262629;color:white;font-weight:900}.map-info{margin-top:8px;padding:10px;background:var(--card);border:1px solid var(--border);border-radius:13px}.btn{display:block;width:100%;border:0;border-radius:13px;padding:12px;margin-top:7px;background:var(--a);color:#111;text-align:center;text-decoration:none;font-weight:900}.btn.secondary{background:var(--card2);color:var(--text);border:1px solid var(--border)}#yandexPane{display:none}.yandex-box{min-height:56vh;background:#111;border:1px solid var(--border);border-radius:16px;overflow:hidden;position:relative}.yandex-box .fallback{padding:18px}.bottom{position:fixed;z-index:20;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,650px);padding:6px 7px calc(6px + env(safe-area-inset-bottom));background:rgba(11,11,12,.96);border-top:1px solid var(--border);backdrop-filter:blur(15px)}.bottom div{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.bottom button{border:0;border-radius:11px;background:transparent;color:var(--muted);padding:7px 3px;font-size:11px}.bottom button.active{background:var(--card2);color:var(--text)}.bottom i{display:block;font-style:normal;font-size:19px}.status{padding:9px 11px;margin:8px 0;border:1px solid var(--border);border-radius:12px;background:var(--card);font-size:12px;color:var(--muted)}.status.ok{color:#9aefb5;border-color:#285f3b}@media(max-width:380px){.program-tabs button{font-size:11px}.app{padding-left:9px;padding-right:9px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top"><h1>ИТ-Пикник</h1><span class="live">● LIVE 15</span></header>
+  <div id="bootStatus" class="status">Загружаю официальную программу…</div>
+
+  <section id="home" class="view active">
+    <div class="profile"><button data-profile="vlad" class="active">👨 Влад</button><button data-profile="yulia">👩 Юля</button></div>
+    <div class="hero"><div class="state" id="homeState">Сейчас</div><h2 id="homeTitle">ИТ-Пикник</h2><div class="muted" id="homeText">Определяю следующий пункт маршрута…</div></div>
+    <div id="homeRoute" class="route"></div>
+  </section>
+
+  <section id="program" class="view">
+    <div class="program-tabs"><button data-mode="vlad" class="active">👨 Влад</button><button data-mode="yulia">👩 Юля</button><button data-mode="all">🌐 Весь пикник</button></div>
+    <div id="personalProgram" class="route"></div>
+    <div id="allProgram" style="display:none">
+      <div class="tools"><input id="search" class="search" placeholder="Найти доклад, спикера, компанию…"><div class="filters"><button data-filter="all" class="active">Все</button><button data-filter="talk">Лектории</button><button data-filter="activity">Интерактивы</button><button data-filter="music">Музыка</button></div></div>
+      <div id="officialList"></div>
+    </div>
+  </section>
+
+  <section id="map" class="view">
+    <div class="map-tabs"><button id="festivalTab" class="active">🎪 Фестиваль</button><button id="yandexTab">🗺 Яндекс</button></div>
+    <div id="festivalPane">
+      <div class="mapbox" id="mapbox"><div class="map-controls"><button id="minus">−</button><button id="reset">⌂</button><button id="plus">+</button></div><img id="festivalMap" src="./map.svg?v=live15" alt="Карта ИТ-Пикника"></div>
+      <div class="map-info"><b>Наша схема фестиваля</b><div class="muted">Лектории, зоны Т-Банка, Авто.ру, сцены, входы и сервисные точки.</div><button id="geoBtn" class="btn secondary">📍 Где я?</button><div id="geoText" class="muted" style="margin-top:7px"></div></div>
+    </div>
+    <div id="yandexPane">
+      <div id="yandexBox" class="yandex-box"><div class="fallback"><b>Официальная карта организаторов в Яндексе</b><p class="muted">Интерактивная карта подгружается отдельно. Если сеть её блокирует, используйте кнопку ниже.</p></div></div>
+      <a class="btn" href="https://yandex.ru/maps/?um=constructor%3A5b5f37d98152c3d007c4f6b77b9d2eeedbe6417be37a51e6dc2792b6a9bfaa39&source=constructorLink" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+      <div class="map-info"><b>Входы сегодня</b><a class="btn secondary" href="https://yandex.ru/maps/-/CHt6jWyC" target="_blank">Главный вход 1</a><a class="btn secondary" href="https://yandex.ru/maps/-/CHt6Z0j8" target="_blank">Вход 2</a><a class="btn secondary" href="https://yandex.ru/maps/-/CHt6nR2Y" target="_blank">Вход 3</a></div>
+    </div>
+  </section>
+</div>
+<nav class="bottom"><div><button data-view="home" class="active"><i>🏠</i>Главная</button><button data-view="program"><i>📅</i>Программа</button><button data-view="map"><i>🗺</i>Карта</button></div></nav>
+<script>
+(()=>{'use strict';
+const routes={
+ vlad:[
+  ['12:00','12:50','Вход → карта → Т-Банк / Авто.ру','Ориентирование и первые контакты','both'],
+  ['13:00','14:00','Как устроен Т-Авто','Лекторий 1 · Продукты от и до','both'],
+  ['14:00','15:00','Разработка после AI — Александр Поломодов','Инженерная программа','both'],
+  ['15:00','16:00','Метрики SDLC','Лекторий 3 · Инженерная продуктивность','vlad'],
+  ['16:00','17:00','Разработка сервиса Okko от и до','Лекторий 1 · Продукты от и до','both'],
+  ['17:00','18:00','Нетворкинг: Т-Банк / Авто.ру','Т-Банк. Команда → Технологии → Авто.ру','vlad'],
+  ['18:00','18:30','Встречаемся: еда + обмен результатами','','both'],
+  ['18:30','19:30','CREAM SODA','Музыкальная сцена','both'],['19:40','20:50','IOWA','Музыкальная сцена','both'],['21:10','22:30','Антон Беляев / LAB','Музыкальная сцена','both']
+ ],
+ yulia:[
+  ['12:00','12:50','Вход → карта → Т-Банк / Авто.ру','Ориентирование и первые контакты','both'],
+  ['13:00','14:00','Как устроен Т-Авто','Лекторий 1 · Продукты от и до','both'],
+  ['14:00','15:00','Разработка после AI — Александр Поломодов','Инженерная программа','both'],
+  ['15:00','16:00','Как устроены Яндекс Карты','Лекторий 1 · Продукты от и до','yulia'],
+  ['16:00','17:00','Разработка сервиса Okko от и до','Лекторий 1 · Продукты от и до','both'],
+  ['17:00','18:00','Паблик-толк о высшем образовании','Образование','yulia'],
+  ['18:00','18:30','Встречаемся: еда + обмен результатами','','both'],
+  ['18:30','19:30','CREAM SODA','Музыкальная сцена','both'],['19:40','20:50','IOWA','Музыкальная сцена','both'],['21:10','22:30','Антон Беляев / LAB','Музыкальная сцена','both']
+ ]
+};
+let profile=localStorage.getItem('itp26-program-mode')==='yulia'?'yulia':'vlad',mode=profile,filter='all',query='',scale=1,yandexLoaded=false;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const min=t=>{const[a,b]=t.split(':').map(Number);return a*60+b};
+function current(es){const d=new Date(),m=d.getHours()*60+d.getMinutes(),same=d.getFullYear()===2026&&d.getMonth()===7&&d.getDate()===8;return{cur:same?es.find(e=>m>=min(e[0])&&m<min(e[1])):null,next:same?es.find(e=>min(e[0])>m):es[0]}}
+function eventHtml(e,ci){return `<article class="event ${ci.cur===e?'current':''}"><div class="time">${e[0]}–${e[1]}</div><h3>${e[2]}</h3>${e[3]?`<div class="meta">${e[3]}</div>`:''}<span class="tag">${e[4]==='both'?'👫 вместе':e[4]==='vlad'?'👨 только Влад':'👩 только Юля'}</span></article>`}
+function syncProfileButtons(){$$('[data-profile]').forEach(b=>b.classList.toggle('active',b.dataset.profile===profile));$$('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode))}
+function renderHome(){const es=routes[profile],ci=current(es),x=ci.cur||ci.next;$('#homeState').textContent=ci.cur?`Сейчас · ${profile==='vlad'?'Влад':'Юля'}`:'Дальше';$('#homeTitle').textContent=x?(ci.cur?x[2]:`${x[0]} · ${x[2]}`):'Маршрут завершён';$('#homeText').textContent=x?.[3]||'Смотрите программу';const start=ci.cur?es.indexOf(ci.cur):ci.next?es.indexOf(ci.next):0;$('#homeRoute').innerHTML=es.slice(Math.max(0,start),Math.max(0,start)+4).map(e=>eventHtml(e,ci)).join('')}
+function renderPersonal(){const es=routes[mode==='yulia'?'yulia':'vlad'],ci=current(es);$('#personalProgram').innerHTML=es.map(e=>eventHtml(e,ci)).join('')}
+function renderOfficial(){const data=window.ITP_SCHEDULE;if(!data?.events){$('#officialList').innerHTML='<div class="status">Официальная сетка не загрузилась. Личные маршруты выше полностью доступны.</div>';return}const ev=data.events.filter(e=>e.official!==false).filter(e=>filter==='all'||e.type===filter).filter(e=>!query||[e.title,e.speaker,e.company,e.description,data.locations?.[e.locationId]?.title].filter(Boolean).join(' ').toLowerCase().includes(query));let last='';$('#officialList').innerHTML=ev.sort((a,b)=>min(a.start)-min(b.start)).map(e=>{const slot=e.start!==last?`<div class="slot">${e.start}</div>`:'';last=e.start;const loc=data.locations?.[e.locationId]?.title||'';return `${slot}<article class="event"><h3>${e.title}</h3><div class="meta">${e.start}${e.end?'–'+e.end:''}${e.speaker?' · '+e.speaker:''}${e.company?' · '+e.company:''}</div>${loc?`<span class="tag">${loc}</span>`:''}</article>`}).join('')||'<div class="status">Ничего не найдено</div>'}
+function setMode(m){mode=m;syncProfileButtons();const all=m==='all';$('#personalProgram').style.display=all?'none':'block';$('#allProgram').style.display=all?'block':'none';if(!all){profile=m;localStorage.setItem('itp26-program-mode',profile);renderHome();renderPersonal()}else renderOfficial()}
+$$('[data-profile]').forEach(b=>b.onclick=()=>{profile=b.dataset.profile;mode=profile;localStorage.setItem('itp26-program-mode',profile);syncProfileButtons();renderHome();renderPersonal()});$$('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+$$('[data-view]').forEach(b=>b.onclick=()=>{$$('.view').forEach(v=>v.classList.remove('active'));$('#'+b.dataset.view).classList.add('active');$$('[data-view]').forEach(x=>x.classList.toggle('active',x===b))});
+$('#search').oninput=e=>{query=e.target.value.trim().toLowerCase();renderOfficial()};$$('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;$$('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));renderOfficial()});
+function mapScale(n){scale=Math.max(1,Math.min(3,n));$('#festivalMap').style.width=(scale*100)+'%'}$('#plus').onclick=()=>mapScale(scale+.35);$('#minus').onclick=()=>mapScale(scale-.35);$('#reset').onclick=()=>{mapScale(1);$('#mapbox').scrollTo(0,0)};
+$('#festivalTab').onclick=()=>{$('#festivalPane').style.display='block';$('#yandexPane').style.display='none';$('#festivalTab').classList.add('active');$('#yandexTab').classList.remove('active')};$('#yandexTab').onclick=()=>{$('#festivalPane').style.display='none';$('#yandexPane').style.display='block';$('#yandexTab').classList.add('active');$('#festivalTab').classList.remove('active');loadYandex()};
+function loadYandex(){if(yandexLoaded)return;yandexLoaded=true;const box=$('#yandexBox'),s=document.createElement('script');s.async=true;s.charset='utf-8';s.src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A5b5f37d98152c3d007c4f6b77b9d2eeedbe6417be37a51e6dc2792b6a9bfaa39&width=100%25&height=520&lang=ru_RU&scroll=true';box.innerHTML='';box.appendChild(s);setTimeout(()=>{if(!box.querySelector('iframe')&&!box.children.length){box.innerHTML='<div class="fallback">Карта Яндекса не загрузилась. Используйте кнопку ниже.</div>'}},5000)}
+$('#geoBtn').onclick=()=>{const out=$('#geoText');if(!navigator.geolocation){out.textContent='Геолокация недоступна';return}out.textContent='Определяю…';navigator.geolocation.getCurrentPosition(p=>{const{latitude:lat,longitude:lon,accuracy:a}=p.coords;out.innerHTML=`GPS: ${lat.toFixed(5)}, ${lon.toFixed(5)} · ±${Math.round(a)} м<br><a href="https://yandex.ru/maps/?ll=${lon},${lat}&z=17" target="_blank" style="color:#ffb879">Открыть эту точку в Яндексе</a>`},e=>out.textContent='Не удалось получить GPS: '+e.message,{enableHighAccuracy:true,timeout:12000,maximumAge:5000})};
+renderHome();renderPersonal();syncProfileButtons();
+const sd=document.createElement('script');sd.src='./schedule-data.js?v=20260808-live15';sd.onload=()=>{const st=$('#bootStatus');st.textContent=`Официальная программа загружена · ${window.ITP_SCHEDULE?.events?.length||0} событий`;st.classList.add('ok');if(mode==='all')renderOfficial()};sd.onerror=()=>{$('#bootStatus').textContent='Личные маршруты работают. Полная сетка временно не загрузилась.'};document.head.appendChild(sd);
+if('serviceWorker'in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{});if('caches'in window)caches.keys().then(ks=>ks.filter(k=>k.startsWith('it-picnik-2026-')).forEach(k=>caches.delete(k))).catch(()=>{})}
+})();
+</script>
+</body></html>
