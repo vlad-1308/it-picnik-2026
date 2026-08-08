@@ -1,11 +1,14 @@
 (function(){
   'use strict';
 
+  const BUILD='20260808-1236-v13';
   function loadScript(src){
     return new Promise((resolve,reject)=>{
-      if(document.querySelector('script[data-dynamic="'+src+'"]')) return resolve();
+      const key=src+'@'+BUILD;
+      if(document.querySelector('script[data-dynamic="'+key+'"]')) return resolve();
       const s=document.createElement('script');
-      s.src=src; s.defer=true; s.dataset.dynamic=src;
+      s.src=src+(src.includes('?')?'&':'?')+'v='+encodeURIComponent(BUILD);
+      s.defer=true; s.dataset.dynamic=key;
       s.onload=resolve; s.onerror=reject;
       document.head.appendChild(s);
     });
@@ -14,6 +17,14 @@
   const scheduleReady = loadScript('./schedule-data.js')
     .then(()=>loadScript('./route-data.js'))
     .then(()=>loadScript('./schedule-engine.js'))
+    .then(()=>{
+      setTimeout(()=>{
+        if(!document.querySelector('#program .pv2-tabs')){
+          console.warn('Program v2 did not render; retrying fresh engine');
+          loadScript('./schedule-engine.js?retry=1').catch(()=>{});
+        }
+      },800);
+    })
     .catch(err=>{console.warn('Schedule subsystem failed to load',err);throw err;});
 
   const geoReady = loadScript('./geo-data.js')
