@@ -1,4 +1,4 @@
-const CACHE='it-picnik-2026-v6';
+const CACHE='it-picnik-2026-v7';
 const CORE=['./','./index.html','./manifest.webmanifest','./icon.svg','./app.js','./map.svg','./map-enhance.js','./schedule-data.js','./schedule-engine.js','./geo-data.js','./yandex-layer.js'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
