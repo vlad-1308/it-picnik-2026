@@ -11,12 +11,11 @@
       .geo-pane[hidden]{display:none!important}
       .yandex-intro{padding:12px;margin-bottom:9px;border:1px solid var(--border);border-radius:15px;background:var(--card);font-size:13px;color:#d7d7db}.yandex-intro b{color:#fff}
       .yandex-map-wrap{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:18px;background:#eef2f3;min-height:520px}
-      #itpYandexConstructorMap{width:100%;height:520px;background:#eef2f3}
+      #itpYandexConstructorMap{position:absolute;inset:0;width:100%;height:520px;z-index:2;background:transparent}
       #itpYandexConstructorMap>*{max-width:100%}
-      .yandex-fallback{position:absolute;inset:0;display:grid;place-items:center;background:#eef2f3;color:#222;text-align:center;padding:22px;z-index:2}
-      .yandex-fallback[hidden]{display:none}.yandex-fallback img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-      .yandex-fallback-card{position:relative;z-index:2;max-width:300px;background:rgba(255,255,255,.94);border-radius:15px;padding:13px;box-shadow:0 5px 24px rgba(0,0,0,.15)}
-      .yandex-fallback-card b{display:block;margin-bottom:5px}
+      .yandex-static{display:block;width:100%;height:520px;object-fit:cover;background:#eef2f3}
+      .yandex-loading{position:absolute;left:10px;bottom:10px;z-index:3;background:rgba(255,255,255,.93);color:#222;border-radius:10px;padding:7px 9px;font-size:11px;box-shadow:0 3px 14px rgba(0,0,0,.12)}
+      .yandex-loading.hidden{display:none}
       .yandex-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
       .yandex-actions a{display:block;text-align:center;text-decoration:none;border-radius:13px;padding:11px 8px;font-size:13px;font-weight:700;background:var(--card);border:1px solid var(--border);color:var(--text)}
       .yandex-actions a.primary-y{background:#ffd633;color:#111;border-color:#ffd633}
@@ -52,39 +51,34 @@
     const entrances=cfg.entrances.map(e=>'<a href="'+e.url+'" target="_blank" rel="noopener">'+e.title+'</a>').join('');
 
     y.innerHTML=`
-      <div class="yandex-intro"><b>Реальная география Коломенского.</b><br>Это официальный Constructor организаторов. Наша фестивальная схема лучше отвечает на вопрос «что здесь происходит», а Яндекс — «где это физически».</div>
+      <div class="yandex-intro"><b>Реальная география Коломенского.</b><br>Статическая карта показывается сразу. Интерактивный официальный Constructor организаторов подгружается поверх неё, если браузер это разрешает.</div>
       <div class="yandex-map-wrap">
-        <div id="itpYandexConstructorMap" aria-label="Официальная карта локаций в Яндекс Картах"></div>
-        <div id="yandexFallback" class="yandex-fallback" hidden>
-          <img id="yandexStatic" alt="Статическая карта Яндекс">
-          <div class="yandex-fallback-card"><b>Интерактивный слой не загрузился</b><span>Показываю статическую карту. Полную версию можно открыть кнопкой ниже.</span></div>
-        </div>
+        <img id="yandexStatic" class="yandex-static" alt="Официальная карта локаций в Яндекс Картах" src="${staticUrl(cfg)}">
+        <div id="itpYandexConstructorMap" aria-label="Интерактивная карта локаций в Яндекс Картах"></div>
+        <div id="yandexLoading" class="yandex-loading">Загружаю интерактивный слой…</div>
       </div>
       <div class="yandex-actions"><a class="primary-y" href="${cfg.yandex.mapUrl}" target="_blank" rel="noopener">📍 Открыть в Яндекс Картах</a><a href="#" id="backFestivalMap">🎪 Наша схема</a></div>
       <div class="entrance-title">Оперативные входы</div><div class="entrance-grid">${entrances}</div>
       <div class="ops-note">${cfg.operational.note}</div>
-      <div class="yandex-help">Интерактивный Constructor грузится только после открытия этой вкладки — так он получает реальный размер контейнера и не рисует пустую/чёрную область.</div>`;
+      <div class="yandex-help">Если интерактивный виджет не загрузится, карта всё равно останется видимой как статическая. Для GPS и маршрутов используйте кнопку «Открыть в Яндекс Картах».</div>`;
 
     section.appendChild(switcher);section.appendChild(festival);section.appendChild(y);head.after(switcher);
 
     let constructorState='idle';
+    function loading(on){const el=document.getElementById('yandexLoading');if(el)el.classList.toggle('hidden',!on)}
     function loadConstructor(){
       if(constructorState!=='idle')return;
-      constructorState='loading';
+      constructorState='loading';loading(true);
       const script=document.createElement('script');script.type='text/javascript';script.charset='utf-8';script.async=true;script.src=constructorScriptUrl(cfg);
       script.onload=()=>{constructorState='loaded';setTimeout(checkConstructor,1200)};
-      script.onerror=()=>{constructorState='error';fallback()};
+      script.onerror=()=>{constructorState='static';loading(false)};
       document.head.appendChild(script);
       setTimeout(()=>{if(constructorState==='loading')checkConstructor()},6500);
     }
     function checkConstructor(){
       const box=document.getElementById('itpYandexConstructorMap');
-      if(box&&box.children.length>0){constructorState='loaded';return}
-      fallback();
-    }
-    function fallback(){
-      const f=document.getElementById('yandexFallback'),img=document.getElementById('yandexStatic');if(!f||!img)return;
-      img.src=staticUrl(cfg);f.hidden=false;constructorState='fallback';
+      if(box&&box.children.length>0){constructorState='loaded';loading(false);return}
+      constructorState='static';loading(false);
     }
 
     function show(mode){
