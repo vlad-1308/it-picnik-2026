@@ -19,6 +19,15 @@
     .then(()=>loadScript('./schedule-engine.js'))
     .catch(err=>console.warn('Schedule subsystem failed to load',err));
 
+  /*
+   * Geography is another isolated subsystem. The current implementation uses the
+   * official organizer Yandex Constructor as a second map layer. A future JS API
+   * key/GPS integration can replace yandex-layer.js without touching the main UI.
+   */
+  loadScript('./geo-data.js')
+    .then(()=>loadScript('./yandex-layer.js'))
+    .catch(err=>console.warn('Geo subsystem failed to load',err));
+
   const shortLabels={
     team:'Т-Банк Команда',auto:'Авто.ру',eng3:'Л3 · Инженерия',education:'Образование',
     prod1:'Л1 · Продукты',data2:'Л2 · Data',mainstage:'Музыкальная сцена',
