@@ -1,0 +1,40 @@
+(function(){
+  'use strict';
+  const shortLabels={
+    team:'Т-Банк Команда',auto:'Авто.ру',eng3:'Л3 · Инженерия',education:'Образование',
+    prod1:'Л1 · Продукты',data2:'Л2 · Data',mainstage:'Музыкальная сцена',
+    tproducts:'Т-Банк Продукты',tech:'Т-Банк Технологии'
+  };
+  function enhancePins(){
+    document.querySelectorAll('#mapPins .map-pin').forEach(pin=>{
+      const id=pin.dataset.id;
+      if(!shortLabels[id]) return;
+      if(!pin.querySelector('.pin-core')){
+        const txt=pin.textContent;
+        pin.textContent='';
+        const core=document.createElement('span');
+        core.className='pin-core'; core.textContent=txt;
+        pin.appendChild(core);
+      }
+      if(!pin.querySelector('.pin-label')){
+        const label=document.createElement('span');
+        label.className='pin-label'; label.textContent=shortLabels[id];
+        pin.appendChild(label);
+      }
+    });
+  }
+  function jump(id){
+    const pin=document.querySelector('#mapPins .map-pin[data-id="'+id+'"]');
+    if(pin){ pin.click(); return; }
+    const all=document.querySelector('#mapFilters [data-filter="all"]');
+    if(all){ all.click(); setTimeout(()=>{ const p=document.querySelector('#mapPins .map-pin[data-id="'+id+'"]'); if(p)p.click(); },30); }
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    const pins=document.getElementById('mapPins');
+    if(pins){
+      new MutationObserver(enhancePins).observe(pins,{childList:true,subtree:true});
+      enhancePins();
+    }
+    document.querySelectorAll('.zone-jump').forEach(btn=>btn.addEventListener('click',()=>jump(btn.dataset.point)));
+  });
+})();
