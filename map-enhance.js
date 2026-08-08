@@ -11,17 +11,21 @@
     });
   }
 
-  /* Official schedule and personal routes are separate layers. */
-  loadScript('./schedule-data.js')
+  const scheduleReady = loadScript('./schedule-data.js')
     .then(()=>loadScript('./route-data.js'))
     .then(()=>loadScript('./schedule-engine.js'))
-    .catch(err=>console.warn('Schedule subsystem failed to load',err));
+    .catch(err=>{console.warn('Schedule subsystem failed to load',err);throw err;});
 
-  /* Geography is isolated from the main UI. */
-  loadScript('./geo-data.js')
+  const geoReady = loadScript('./geo-data.js')
     .then(()=>loadScript('./yandex-layer.js'))
     .then(()=>loadScript('./geo-nav.js'))
-    .catch(err=>console.warn('Geo subsystem failed to load',err));
+    .catch(err=>{console.warn('Geo subsystem failed to load',err);throw err;});
+
+  Promise.allSettled([scheduleReady,geoReady]).then(()=>
+    loadScript('./route-graph.js')
+      .then(()=>loadScript('./map-ux.js'))
+      .catch(err=>console.warn('Map UX subsystem failed to load',err))
+  );
 
   const shortLabels={
     team:'Т-Банк Команда',auto:'Авто.ру',eng3:'Л3 · Инженерия',education:'Образование',
