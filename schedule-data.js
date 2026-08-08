@@ -1,122 +1,181 @@
-/*
- * Единственная точка обновления официального расписания.
- * Когда выйдет полная программа, меняем только этот файл.
- * UI, карта, фильтры, конфликты и блок «Сейчас» строятся автоматически.
- */
+/* Generated from official IT Picnic 2026 PDFs. UI/map logic lives elsewhere. */
 window.ITP_SCHEDULE = {
-  schemaVersion: 1,
-  dataVersion: "2026-08-08-partial-1",
-  status: "partial", // partial | full
-  date: "2026-08-08",
-  timezone: "Europe/Moscow",
-  source: {
-    title: "ИТ-Пикник 2026",
-    url: "https://it-picnic.ru/",
-    publishedAt: null,
-    note: "Пока внесены только подтвержденные общие события. Полные доклады добавятся после официальной публикации."
+  "schemaVersion": 1,
+  "dataVersion": "2026-08-08-full-lectures-interactives-1",
+  "status": "full",
+  "date": "2026-08-08",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "title": "Официальные PDF «Расписание лекториев ИТ-Пикник» и «Расписание интерактивов ИТ Пикник»",
+    "url": "https://it-picnic.ru/",
+    "publishedAt": "2026-08-08",
+    "note": "Полная сетка лекториев и расписание интерактивов загружены из официальных PDF."
   },
-
-  /* locationId обязан совпадать с id точки интерактивной карты. */
-  locations: {
-    prod1:     { title: "Лекторий 1 · Продукты от и до", mapId: "prod1", zone: "east" },
-    data2:     { title: "Лекторий 2 · От данных к решениям", mapId: "data2", zone: "east" },
-    eng3:      { title: "Лекторий 3 · Инженерная продуктивность", mapId: "eng3", zone: "west" },
-    cyber4:    { title: "Лекторий 4 · Кибербезопасность", mapId: "cyber4", zone: "west" },
-    big5:      { title: "Лекторий 5 · Бигтех в каске", mapId: "big5", zone: "north" },
-    gen6:      { title: "Лекторий 6 · Генеративный ИИ", mapId: "gen6", zone: "north" },
-    education: { title: "Образование", mapId: "education", zone: "north" },
-    science:   { title: "Научная сцена", mapId: "science", zone: "east" },
-    mainstage: { title: "Музыкальная сцена", mapId: "mainstage", zone: "south" },
-    flat:      { title: "ИТ-квартирник", mapId: "flat", zone: "south" },
-    team:      { title: "Т-Банк. Команда", mapId: "team", zone: "center" },
-    tech:      { title: "Т-Банк. Технологии", mapId: "tech", zone: "center" },
-    auto:      { title: "Авто.ру", mapId: "auto", zone: "center" },
-    tproducts: { title: "Т-Банк. Продукты", mapId: "tproducts", zone: "west" }
+  "locations": {
+    "prod1": {"title":"Лекторий 1 · Продукты от и до","mapId":"prod1","zone":"east"},
+    "data2": {"title":"Лекторий 2 · От данных к решениям","mapId":"data2","zone":"east"},
+    "eng3": {"title":"Лекторий 3 · Инженерная продуктивность","mapId":"eng3","zone":"west"},
+    "cyber4": {"title":"Лекторий 4 · Кибербезопасность","mapId":"cyber4","zone":"west"},
+    "big5": {"title":"Лекторий 5 · Бигтех в каске","mapId":"big5","zone":"north"},
+    "gen6": {"title":"Лекторий 6 · Генеративный ИИ","mapId":"gen6","zone":"north"},
+    "education": {"title":"Образование","mapId":"education","zone":"north"},
+    "science": {"title":"Научпоп","mapId":"science","zone":"east"},
+    "mainstage": {"title":"Музыкальная сцена","mapId":"mainstage","zone":"south"},
+    "flat": {"title":"ИТ-квартирник","mapId":"flat","zone":"south"},
+    "team": {"title":"Т-Банк. Команда","mapId":"team","zone":"center"},
+    "tech": {"title":"Т-Банк. Технологии","mapId":"tech","zone":"center"},
+    "auto": {"title":"Авто.ру","mapId":"auto","zone":"center"},
+    "tproducts": {"title":"Т-Банк. Продукты","mapId":"tproducts","zone":"west"}
   },
-
-  tracks: {
-    products:    { title: "Продукты от и до", icon: "📦", locationId: "prod1" },
-    data:        { title: "От данных к решениям", icon: "📊", locationId: "data2" },
-    engineering: { title: "Инженерная продуктивность", icon: "🛠", locationId: "eng3" },
-    cyber:       { title: "Кибербезопасность", icon: "🔐", locationId: "cyber4" },
-    bigtech:     { title: "Бигтех в каске", icon: "🏗", locationId: "big5" },
-    genai:       { title: "Генеративный ИИ", icon: "🤖", locationId: "gen6" },
-    education:   { title: "Образование", icon: "🎓", locationId: "education" },
-    science:     { title: "Научпоп", icon: "🔬", locationId: "science" },
-    music:       { title: "Музыка", icon: "🎵", locationId: "mainstage" }
+  "tracks": {
+    "products":{"title":"Продукты от и до","icon":"📦","locationId":"prod1"},
+    "data":{"title":"От данных к решениям","icon":"📊","locationId":"data2"},
+    "engineering":{"title":"Инженерная продуктивность","icon":"🛠","locationId":"eng3"},
+    "cyber":{"title":"Кибербезопасность","icon":"🔐","locationId":"cyber4"},
+    "bigtech":{"title":"Бигтех в каске","icon":"🏗","locationId":"big5"},
+    "genai":{"title":"Генеративный ИИ","icon":"🤖","locationId":"gen6"},
+    "education":{"title":"Образование","icon":"🎓","locationId":"education"},
+    "science":{"title":"Научпоп","icon":"🔬","locationId":"science"},
+    "music":{"title":"Музыка","icon":"🎵","locationId":"mainstage"},
+    "interactive":{"title":"Интерактивы","icon":"🎪","locationId":null}
   },
+  "events": [
+    {"id":"our-arrival","start":"12:00","end":"12:50","title":"Вход → карта → Т-Банк / Авто.ру","type":"service","trackId":null,"locationId":null,"speaker":null,"company":null,"description":"Спокойно зайти, свериться с картой, найти Т-Банк. Команду, Авто.ру и Лекторий 1. К 12:50 двигаться к Т-Авто.","score":{"vlad":2,"yulia":2},"reasons":{},"plan":["both"],"official":false},
 
-  /*
-   * Формат события:
-   * id              уникальный id
-   * start/end       HH:MM по Москве
-   * title           название доклада/события
-   * type            talk | music | activity | service
-   * trackId         ключ из tracks (может быть null)
-   * locationId      ключ из locations; именно он связывает событие с картой
-   * speaker/company необязательные строки
-   * description     необязательное описание
-   * score           { vlad:0..3, yulia:0..3 } — наша оценка полезности
-   * reasons         { vlad:"...", yulia:"..." }
-   * plan            [] | ["both"] | ["vlad"] | ["yulia"] | комбинация — финальный персональный маршрут
-   * official        true для официальных слотов
-   */
-  events: [
-    {
-      id: "festival-open",
-      start: "12:00", end: "12:05",
-      title: "Открытие площадки",
-      type: "service", trackId: null, locationId: null,
-      speaker: null, company: null, description: null,
-      score: { vlad: 0, yulia: 0 }, reasons: {}, plan: [], official: true
-    },
-    {
-      id: "music-sova",
-      start: "15:30", end: "16:10",
-      title: "СОВА",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: "Главная музыкальная сцена",
-      score: { vlad: 1, yulia: 1 }, reasons: {}, plan: [], official: true
-    },
-    {
-      id: "music-pompeya",
-      start: "16:20", end: "17:05",
-      title: "Pompeya",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: "Точка встречи после раздельных треков",
-      score: { vlad: 2, yulia: 2 }, reasons: {}, plan: ["both"], official: true
-    },
-    {
-      id: "music-martin",
-      start: "17:20", end: "18:10",
-      title: "мартин",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: null,
-      score: { vlad: 1, yulia: 1 }, reasons: {}, plan: [], official: true
-    },
-    {
-      id: "music-cream-soda",
-      start: "18:30", end: "19:25",
-      title: "CREAM SODA",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: null,
-      score: { vlad: 2, yulia: 2 }, reasons: {}, plan: ["both"], official: true
-    },
-    {
-      id: "music-iowa",
-      start: "19:40", end: "20:45",
-      title: "IOWA",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: null,
-      score: { vlad: 2, yulia: 2 }, reasons: {}, plan: ["both"], official: true
-    },
-    {
-      id: "music-lab",
-      start: "21:10", end: "22:25",
-      title: "Антон Беляев / LAB",
-      type: "music", trackId: "music", locationId: "mainstage",
-      speaker: null, company: null, description: "Финальная большая точка дня",
-      score: { vlad: 2, yulia: 2 }, reasons: {}, plan: ["both"], official: true
-    }
+    {"id":"sci-1300-dna","start":"13:00","end":"14:00","title":"Древняя ДНК и история человечества: опасные связи в палеолите","type":"talk","trackId":"science","locationId":"science","speaker":"Михаил Гельфанд","company":"Сколтех, НИУ ВШЭ","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1300-tauto","start":"13:00","end":"14:00","title":"Как устроен Т-Авто","type":"talk","trackId":"products","locationId":"prod1","speaker":"Ринат Гайнутдинов, Роман Старостин, Сергей Иващенко","company":"Т-Банк","description":"Панель о Т-Авто. Для Влада — автомобильный backend и команда; для Юли — продукт и аналитика.","score":{"vlad":3,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+    {"id":"data-1300-ai-analytics","start":"13:00","end":"14:00","title":"AI-трансформация аналитики: как AI переписывает правила игры","type":"talk","trackId":"data","locationId":"data2","speaker":"Роман Халкечев","company":"Яндекс","description":null,"score":{"vlad":2,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1300-agents","start":"13:00","end":"14:00","title":"Эффективность разработки в эпоху агентов","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Александр Лукьянченко","company":"Avito","description":null,"score":{"vlad":3,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1300-three-views","start":"13:00","end":"14:00","title":"Три взгляда на безопасность: разработчик, охотник и хакер","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Антон Лисицын","company":"Raccoon Security","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1300-electricity","start":"13:00","end":"13:30","title":"Новое электричество: как технологии ИИ меняют современную индустрию","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Сергей Марков","company":"Сбербанк","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1330-industry","start":"13:30","end":"14:00","title":"Промышленность как бигтех: новая структура компании","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Алексей Тестин","company":"Норникель","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1300-bubble","start":"13:00","end":"14:00","title":"GenAI: как не стать частью пузыря","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Артём Бондарь","company":"Т-Банк","description":null,"score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1300-learn-anything","start":"13:00","end":"14:00","title":"Как научиться чему угодно","type":"talk","trackId":"education","locationId":"education","speaker":"Дмитрий Коняев","company":"Московская школа программистов","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+
+    {"id":"sci-1400-art","start":"14:00","end":"15:00","title":"Зачем нам искусство?","type":"talk","trackId":"science","locationId":"science","speaker":"Анастасия Четверикова","company":"МГПУ","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1400-drinkit","start":"14:00","end":"15:00","title":"Дринкит: байки из цеха","type":"talk","trackId":"products","locationId":"prod1","speaker":"Ангелина Брусенцова, Никита Лаптев, Дарья Калинина","company":"Дринкит","description":"Продуктовый кейс; модератор Камилла Самохина, Т-Банк.","score":{"vlad":1,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"data-1400-support-robot","start":"14:00","end":"15:00","title":"Мы наняли робота в поддержку. Первую неделю он получал доступы, потом чуть не получил премию","type":"talk","trackId":"data","locationId":"data2","speaker":"Антон Логинов","company":"Т-Банк","description":null,"score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1400-after-ai","start":"14:00","end":"15:00","title":"Разработка после AI","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Александр Поломодов","company":"Т-Банк","description":"Сильный общий слот: Влад — инженерная стратегия и AI; Юля — влияние AI на продуктовую организацию.","score":{"vlad":3,"yulia":2},"reasons":{},"plan":["both"],"official":true},
+    {"id":"cyber-1400-car-leak","start":"14:00","end":"14:30","title":"Автомобиль — средство передвижения или канал утечки?","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Александр Козлов","company":"МГТУ им. Н. Э. Баумана / МИФИ / Kaspersky ICS CERT","description":null,"score":{"vlad":2,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1430-bank-crypto","start":"14:30","end":"15:00","title":"Когда вы сами становитесь банком. Как не потерять криптовалюту","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Владимир Горгадзе","company":"МФТИ, Т-Банк","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1400-last-human-task","start":"14:00","end":"14:30","title":"Последняя человеческая задача","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Данил Ивашечкин","company":"Норникель","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1430-billions","start":"14:30","end":"15:00","title":"Мы дали машине доступ к миллиардам. Что было дальше?","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Антон Руцков","company":"Норникель","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1400-pricing","start":"14:00","end":"14:30","title":"Сколько брать за то, что стоит по-разному: pricing и packaging GenAI-фичи","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Мария Тимофеева","company":"Portfolio CPO AI-native продуктов","description":null,"score":{"vlad":1,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1430-gigachat","start":"14:30","end":"15:00","title":"Как мы создавали GigaChat Ultra — от долгосрочной памяти до «самопознания» нейросети","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Екатерина Зинченко","company":"Сбер","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1400-system-analyst","start":"14:00","end":"15:00","title":"Хроники Системного Аналитика: поднятие уровня от стажера до синьора в одиночку","type":"talk","trackId":"education","locationId":"education","speaker":"Александра Петрова, Илья Суворов","company":"Т-Банк","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+
+    {"id":"sci-1500-language","start":"15:00","end":"16:00","title":"Язык и мышление. Судьба гипотезы лингвистической относительности","type":"talk","trackId":"science","locationId":"science","speaker":"Максим Кронгауз","company":"РГГУ, НИУ ВШЭ","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1500-yandex-maps","start":"15:00","end":"16:00","title":"Как устроены Яндекс Карты","type":"talk","trackId":"products","locationId":"prod1","speaker":"Игорь Ким, Марина Илинская, Александр Тармолов, Владислав Федько","company":"Яндекс Карты","description":"Ключевой product/campus-like кейс для Юли; Владу тоже полезен взгляд на большой геопродукт.","score":{"vlad":2,"yulia":3},"reasons":{},"plan":["yulia"],"official":true},
+    {"id":"data-1500-ai-driven","start":"15:00","end":"16:00","title":"От Data-driven & Data-informed к AI-driven & AI-informed: как меняется работа с данными?","type":"talk","trackId":"data","locationId":"data2","speaker":"Владислав Петраков, Олег Хомюк, Андрей Перепелицын, Кирилл Николаев","company":"Т-Банк / Яндекс / Avito","description":"Дискуссия.","score":{"vlad":1,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1500-sdlc","start":"15:00","end":"16:00","title":"Метрики SDLC: от цифрового шума к системе управления реальностью","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Анна Громова","company":"Т-Банк","description":"Прямое попадание в опыт Влада: delivery, CI/CD, observability и инженерные метрики.","score":{"vlad":3,"yulia":1},"reasons":{},"plan":["vlad"],"official":true},
+    {"id":"cyber-1500-ai-defense","start":"15:00","end":"16:00","title":"Те же угрозы, новая скорость: зачем мы наняли ИИ на защиту банка","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Николай Исламов","company":"Т-Банк","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1500-same-ai","start":"15:00","end":"16:00","title":"Когда у всех будет одинаковый ИИ, кто останется впереди?","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Алексей Тестин, Артём Бондарь, Григорий Атрепьев, Заяна Ачинова","company":"Норникель / Т-Банк / Yandex Cloud / Гринатом","description":"Дискуссия.","score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1500-toolkit","start":"15:00","end":"15:30","title":"Джентльменский набор GenAI","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Антон Скогорев","company":"Т-Банк","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1530-anthropic","start":"15:30","end":"16:00","title":"Чему учат нас розовые очки Антропика","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Дмитрий Меркушов","company":"Mail и VK Workspace","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1500-bingo","start":"15:00","end":"16:00","title":"Математическая командная игра «Математическое бинго»","type":"activity","trackId":"education","locationId":"education","speaker":"Анна Зайцева","company":"Т-Образование","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+
+    {"id":"sci-1600-city","start":"16:00","end":"17:00","title":"Как город меняет человека — и как человек меняет город","type":"talk","trackId":"science","locationId":"science","speaker":"Варвара Любова","company":"Креативное Бюро «Глазами Инженера», НЦ Россия","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1600-okko","start":"16:00","end":"17:00","title":"Разработка сервиса Okko от и до — смешать, но не взбалтывать","type":"talk","trackId":"products","locationId":"prod1","speaker":"Георгий Евграфов, Николай Животворев, Андрей Перекрест, Евгений Курочкин, Евгений Ильюшин","company":"Okko","description":"Хороший общий компромисс: продукт end-to-end плюс реальная разработка большого сервиса.","score":{"vlad":2,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+    {"id":"data-1600-graphs","start":"16:00","end":"16:30","title":"Графы в Т-Банке. Почему в современном банке всё ещё решают связи","type":"talk","trackId":"data","locationId":"data2","speaker":"Иван Гигин, Алексей Теплов","company":"Т-Банк","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"data-1630-selfservice-ai","start":"16:30","end":"17:00","title":"Как мы переходим от кастомных AI-решений к self-service AI платформе и решаем проблему с качеством","type":"talk","trackId":"data","locationId":"data2","speaker":"Дарья Шарико","company":"Авиасейлс","description":null,"score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1600-ai-impact","start":"16:00","end":"17:00","title":"Можно ли доказать влияние AI на разработку, а не просто поверить в него?","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Иван Сухов","company":"Т-Банк","description":null,"score":{"vlad":3,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1600-incidents","start":"16:00","end":"17:00","title":"Обзор инцидентов информационной безопасности 2025/2026","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Сергей Голованов","company":"Лаборатория Касперского","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1600-mining","start":"16:00","end":"16:30","title":"Безлюдные технологии подземной горной добычи","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Ян Лупандин, Сослан Зангиев","company":"Норникель","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1630-4x100","start":"16:30","end":"17:00","title":"От 4 по 100 к 8 по 200","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Юрий Романов","company":"S7 TechLab","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1600-ai-friend","start":"16:00","end":"17:00","title":"AI-трансформация сына маминой подруги: почему у одних получается, а у других — нет","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Рафаел Тонаканян, Иван Пузыревский, Иван Самсонов","company":"Сбер / Yandex Cloud / MWS","description":"Дискуссия.","score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1600-quantum","start":"16:00","end":"17:00","title":"Квантовые технологии современности: как не запутаться в квантовой запутанности?","type":"talk","trackId":"education","locationId":"education","speaker":"Дмитрий Чермошенцев","company":"Российский квантовый центр / МФТИ","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+
+    {"id":"sci-1700-eq","start":"17:00","end":"18:00","title":"Нейробиология эмоционального интеллекта","type":"talk","trackId":"science","locationId":"science","speaker":"Айгуль Насибуллина","company":"Сколтех","description":null,"score":{"vlad":0,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1700-mail","start":"17:00","end":"18:00","title":"Mail. Как работать со зрелым продуктом","type":"talk","trackId":"products","locationId":"prod1","speaker":"Герман Бежев, Сергей Прокудин, Елена Царькова, Станислав Визнер, Арсений Бирбасов","company":"VK Mail","description":"Полезная продуктовая альтернатива для Юли.","score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"data-1700-ml-platforms","start":"17:00","end":"18:00","title":"Три кейса Machine Learning-платформ: два успешных и один не очень","type":"talk","trackId":"data","locationId":"data2","speaker":"Никита Зелинский","company":"МТС Web Services","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1700-team-ai","start":"17:00","end":"18:00","title":"От личного ускорения к командному эффекту: как мы внедряем ИИ в разработку через эксперименты","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Дарья Боярских","company":"Контур","description":"Сильная альтернатива для Влада, если решите снова разойтись.","score":{"vlad":3,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1700-future","start":"17:00","end":"18:00","title":"Безопасность будущего: кибербез или когнитивный коллапс?","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Дмитрий Гадарь, Александр Каледа, Руслан Юсуфов","company":"Т-Банк / Яндекс","description":"Дискуссия.","score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1700-project-ai","start":"17:00","end":"17:30","title":"Нейросети вместо тысяч страниц: ИИ в проектном институте","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Павел Комиссаров","company":"Норникель","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1700-alice","start":"17:00","end":"17:30","title":"Агент бронирования в Алисе","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Александр Семикин","company":"Яндекс","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1730-multi-llm","start":"17:30","end":"18:00","title":"Разделяй и властвуй — боль и отчаяние от инференса нескольких LLM на одной карте","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Кирилл Малков","company":"Россельхозбанк","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1700-higher-ed","start":"17:00","end":"18:00","title":"Паблик-толк о высшем образовании","type":"talk","trackId":"education","locationId":"education","speaker":"Алена Попова, Ростислав Фадеев, Елена Кантонистова, Ирина Шахова","company":"Центральный университет / МФТИ / НИУ ВШЭ / Т-Образование","description":"Самый прямой слот для Юли по campus/education. Оставляем совместным, чтобы не расходиться второй час.","score":{"vlad":1,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+
+    {"id":"sci-1800-lasers","start":"18:00","end":"19:00","title":"Свет будущего: лазеры в жизни человека","type":"talk","trackId":"science","locationId":"science","speaker":"Александр Щекин","company":"НИЯУ МИФИ","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"prod-1800-unidraw","start":"18:00","end":"19:00","title":"От идеи до платформы: как развивается Unidraw","type":"talk","trackId":"products","locationId":"prod1","speaker":"Павел Ахметчанов","company":"Т-Банк","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"data-1800-llm-data","start":"18:00","end":"18:30","title":"Данные для обучения LLM. Как знания о реальном мире улучшают модель","type":"talk","trackId":"data","locationId":"data2","speaker":"Алексей Сандаков","company":"Сбер","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"data-1830-sports","start":"18:30","end":"19:00","title":"От гола до push-уведомления в телефоне: как устроена real-time data-платформа Спортса","type":"talk","trackId":"data","locationId":"data2","speaker":"Максим Пеший","company":"Спортс","description":null,"score":{"vlad":2,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"eng-1800-superheroes","start":"18:00","end":"19:00","title":"Эпоха инженерных супергероев и суперзлодеев","type":"talk","trackId":"engineering","locationId":"eng3","speaker":"Глеб Михеев, Роман Кусев, Антон Рыков, Дмитрий Денисов, Иван Голов","company":"Сбер / Arena & VseLLM / Т-Банк / ИТ-холдинг Т1 / Контур","description":"Модератор Дмитрий Гаевский, Т-Банк. Сильный карьерный слот, но конфликтует с музыкой с 18:30.","score":{"vlad":3,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1800-botnet","start":"18:00","end":"18:30","title":"«Ботнет напрокат»: как мы защищаем шеринговые сервисы от хакеров и их IoT-амбиций","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Данила Урванцев","company":"Шеринговые сервисы Яндекса","description":null,"score":{"vlad":1,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"cyber-1830-invasive","start":"18:30","end":"19:00","title":"Кибербезопасность инвазивных интерфейсов: нейростимуляция и очувствление протезов","type":"talk","trackId":"cyber","locationId":"cyber4","speaker":"Юрий Матвиенко","company":"Моторика","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1800-rnd","start":"18:00","end":"18:30","title":"От научной статьи до открытия: как сегодня трансформируется R&D","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Наиля Мунзаферова","company":"Норникель","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"big-1830-generation-ai","start":"18:30","end":"19:00","title":"Поколение AI: чему и как учиться в эпоху, когда код пишет нейросеть","type":"talk","trackId":"bigtech","locationId":"big5","speaker":"Игорь Гайдаржи","company":"Центральный университет","description":null,"score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"gen-1800-proteins","start":"18:00","end":"19:00","title":"Генеративные модели в белках: насколько мы близки к практике","type":"talk","trackId":"genai","locationId":"gen6","speaker":"Татьяна Шашкова","company":"AIRI","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"edu-1800-genome","start":"18:00","end":"19:00","title":"Геном как текст: что будет, если показать ДНК языковой модели","type":"talk","trackId":"education","locationId":"education","speaker":"Алексей Орлов","company":"Центральный университет","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+
+    {"id":"music-sova","start":"15:30","end":"16:10","title":"СОВА","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"music-pompeya","start":"16:20","end":"17:05","title":"Pompeya","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":"Идёт одновременно с сильными лекционными слотами; оставляем как альтернативу.","score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"music-martin","start":"17:20","end":"18:10","title":"мартин","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"music-cream-soda","start":"18:30","end":"19:25","title":"CREAM SODA","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":null,"score":{"vlad":3,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+    {"id":"music-iowa","start":"19:40","end":"20:45","title":"IOWA","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":null,"score":{"vlad":3,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+    {"id":"music-lab","start":"21:10","end":"22:25","title":"Антон Беляев / LAB","type":"music","trackId":"music","locationId":"mainstage","speaker":null,"company":null,"description":null,"score":{"vlad":3,"yulia":3},"reasons":{},"plan":["both"],"official":true},
+
+    {"id":"act-smeshariki-space","start":"13:00","end":"17:00","title":"Космические мастер-классы и аквариум","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Смешарики","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-smeshariki-talk","start":"17:00","end":"18:00","title":"Паблик-ток «Смешарики сквозь вселенные»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Смешарики","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-uteens-collage","start":"13:00","end":"18:45","title":"МК по архитектурному коллажу «Собери свой мир»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"UTEENS of Universal University","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-uteens-headwear","start":"13:00","end":"18:45","title":"МК по созданию головных уборов «Создай шляпу мечты»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"UTEENS of Universal University","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-injinium-interior","start":"12:00","end":"18:45","title":"МК «Дизайн интерьера: комната мечты» (9–14 лет)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Инжиниум","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-injinium-career","start":"12:00","end":"18:45","title":"Профориентационная игра (9–12 лет)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Инжиниум","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-injinium-steam","start":"12:00","end":"18:45","title":"«Парящий конструктор» (8–12 лет)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Инжиниум","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-biomuseum-quiz","start":"13:00","end":"14:30","title":"БиоКвиз","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Биологический музей имени К. А. Тимирязева","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-biomuseum-chameleons","start":"15:00","end":"16:00","title":"Химические хамелеоны","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Биологический музей имени К. А. Тимирязева","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-biomuseum-bones","start":"16:00","end":"17:00","title":"Занятие с антропологом «О чём говорят кости?»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Биологический музей имени К. А. Тимирязева","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-biomuseum-plants","start":"17:00","end":"18:00","title":"Растения Москвы в окуляре","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Биологический музей имени К. А. Тимирязева","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-planetarium-map","start":"13:00","end":"14:00","title":"Секреты лунной карты (6+)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Московский планетарий","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-planetarium-riddle","start":"14:00","end":"15:00","title":"Загадка Луны (6+)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Московский планетарий","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-planetarium-atmosphere","start":"15:00","end":"16:00","title":"Атмосфера Земли (6+)","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Московский планетарий","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-planetarium-quiz","start":"16:00","end":"17:00","title":"Астрономическая викторина","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Московский планетарий","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-chess-open","start":"12:00","end":"14:00","title":"Путешествие по шахматному королевству: свободные партии","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Шахматный турнир Chessland","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-chess-mini","start":"14:00","end":"15:00","title":"Битва за шахматную корону: мини-турнир до 10 участников","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Шахматный турнир Chessland","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-chess-free","start":"15:00","end":"16:00","title":"Секреты шахматного королевства: свободная игра","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Шахматный турнир Chessland","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-chess-final","start":"20:00","end":"21:00","title":"Финальная битва за корону: вечерний мини-турнир до 10 участников","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Шахматный турнир Chessland","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-eq","start":"13:00","end":"13:30","title":"МК «Эмоциональный центр. Как вернуть опору за 30 секунд в любой ситуации»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Школа критического мышления Business Speech","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-quiz-1340","start":"13:40","end":"14:00","title":"Квиз по критическому мышлению","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-creative-1430","start":"14:30","end":"15:00","title":"Игра «Креатив-бой: битва нестандартных решений»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-brain-team","start":"15:15","end":"15:50","title":"МК «Как мозг убивает командную работу: когнитивные искажения в коммуникации»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":1,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-speaking","start":"16:05","end":"16:35","title":"«Человек разговаривающий»: упражнения для речи, внимания, скорости и гибкости мышления","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-pingpong","start":"16:45","end":"17:15","title":"МК «Командный пинг-понг: почему задачи теряются между отделами»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":2,"yulia":3},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-quiz-1730","start":"17:30","end":"18:10","title":"Квиз по критическому мышлению","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":1,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-bs-music-jam","start":"18:20","end":"19:00","title":"Музыкальный джем: командная синхронизация без слов","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Business Speech","description":null,"score":{"vlad":2,"yulia":2},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1300","start":"13:00","end":"13:30","title":"Пилатес","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1330","start":"13:30","end":"14:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1400","start":"14:00","end":"14:30","title":"Бокс","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1430","start":"14:30","end":"15:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1500","start":"15:00","end":"15:30","title":"Пилатес","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1530","start":"15:30","end":"16:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1600","start":"16:00","end":"16:30","title":"Пилатес","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1630","start":"16:30","end":"17:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1700","start":"17:00","end":"17:30","title":"Бокс","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1730","start":"17:30","end":"18:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1800","start":"18:00","end":"18:30","title":"Бокс","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-fit-1830","start":"18:30","end":"19:00","title":"Акробатика","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"FITMOST","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-organic-1300","start":"13:00","end":"14:15","title":"«Офисный детокс» — хатха-йога","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Organic People","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-organic-1430","start":"14:30","end":"15:45","title":"Хатха-йога для начинающих","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Organic People","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-organic-1600","start":"16:00","end":"17:15","title":"«Прогиб без стресса: йога для офисной спины»","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Organic People","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-organic-1730","start":"17:30","end":"18:45","title":"Мягкий класс на расслабление поясницы","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Organic People","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-organic-1900","start":"19:00","end":"20:15","title":"«Ctrl+Alt+Del тела и ума» с помощью досок с гвоздями","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Organic People","description":null,"score":{"vlad":0,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-sciencely-1300","start":"13:00","end":"14:00","title":"Мастер-классы: физика вокруг нас / электричество / шифрование / научные детективы","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Science.ly","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-sciencely-1500","start":"15:00","end":"16:00","title":"Мастер-классы: физика вокруг нас / электричество / шифрование / научные детективы","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Science.ly","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-sciencely-1700","start":"17:00","end":"18:00","title":"Мастер-классы: физика вокруг нас / электричество / шифрование / научные детективы","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Science.ly","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1300-bass","start":"13:00","end":"13:30","title":"Бас-гитара","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1330-drums","start":"13:30","end":"14:00","title":"Барабаны","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1400-guitar","start":"14:00","end":"14:30","title":"Гитара","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1430-jam","start":"14:30","end":"15:00","title":"Джем","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1530-bass","start":"15:30","end":"16:00","title":"Бас-гитара","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1600-drums","start":"16:00","end":"17:00","title":"Барабаны","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1700-guitar","start":"17:00","end":"17:30","title":"Гитара","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-muz-1730-jam","start":"17:30","end":"18:00","title":"Джем","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Музторг","description":null,"score":{"vlad":1,"yulia":1},"reasons":{},"plan":[],"official":true},
+    {"id":"act-gluco-1300","start":"13:00","end":"14:00","title":"Мастер-класс: игра на глюкофонах","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Космосами Глюкофоны","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-gluco-1430","start":"14:30","end":"15:30","title":"Мастер-класс: игра на глюкофонах","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Космосами Глюкофоны","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-gluco-1630","start":"16:30","end":"17:30","title":"Мастер-класс: игра на глюкофонах","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Космосами Глюкофоны","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-gluco-1800","start":"18:00","end":"19:00","title":"Мастер-класс: игра на глюкофонах","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Космосами Глюкофоны","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-pottery-1300","start":"13:00","end":"14:00","title":"Роспись тарелок","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Тук Тук Гончарная","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-pottery-1430","start":"14:30","end":"15:00","title":"Роспись обвесов","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Тук Тук Гончарная","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-pottery-1600","start":"16:00","end":"17:00","title":"Роспись тарелок","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Тук Тук Гончарная","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true},
+    {"id":"act-pottery-1730","start":"17:30","end":"18:00","title":"Роспись неваляшек","type":"activity","trackId":"interactive","locationId":null,"speaker":null,"company":"Тук Тук Гончарная","description":null,"score":{"vlad":0,"yulia":0},"reasons":{},"plan":[],"official":true}
   ]
 };
