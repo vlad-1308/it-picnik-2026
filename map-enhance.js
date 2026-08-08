@@ -11,18 +11,13 @@
     });
   }
 
-  /*
-   * Schedule subsystem is deliberately loaded from here so index.html stays stable.
-   * Future official-program updates only touch schedule-data.js.
-   */
+  /* Official schedule and personal routes are separate layers. */
   loadScript('./schedule-data.js')
+    .then(()=>loadScript('./route-data.js'))
     .then(()=>loadScript('./schedule-engine.js'))
     .catch(err=>console.warn('Schedule subsystem failed to load',err));
 
-  /*
-   * Geography is isolated from the main UI. Yandex gives the external geographic
-   * reference; geo-nav.js calibrates live phone GPS against the festival scheme.
-   */
+  /* Geography is isolated from the main UI. */
   loadScript('./geo-data.js')
     .then(()=>loadScript('./yandex-layer.js'))
     .then(()=>loadScript('./geo-nav.js'))
