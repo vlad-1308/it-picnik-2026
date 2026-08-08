@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  const BUILD='20260808-1236-v13';
+  const BUILD='20260808-1250-v14';
   function loadScript(src){
     return new Promise((resolve,reject)=>{
       const key=src+'@'+BUILD;
